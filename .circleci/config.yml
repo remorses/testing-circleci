@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: docker/compose:1.23.2
+      
+    working_directory: /src
+
+    steps:
+      - checkout
+      - run: echo $CIAO
+      - setup_remote_docker
+      - run: echo $CIAO
+      - run:
+          name: Build Docker images
+          command: docker-compose -p $CIRCLE_PROJECT_REPONAME -f docker-compose.yaml up
