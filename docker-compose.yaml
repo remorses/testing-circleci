@@ -1,0 +1,4 @@
+services:
+  test:
+    image: busybox
+    command: echo $CIAO
